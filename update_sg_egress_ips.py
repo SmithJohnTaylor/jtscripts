@@ -1,9 +1,20 @@
 import boto3, subprocess
 from botocore.exceptions import ClientError
 
+input = input("""
+    For the best experience using this script, it's recommended to leverage a venv, where you have boto3 installed 
+    and configured to access your AWS env. 
+    To setup boto3, see this page: https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html
+    
+    Also, ensure that you have your Confluent CLI setup and are logged in. 
+    See here: https://docs.confluent.io/confluent-cli/current/overview.html#quick-start 
+      
+    If you've need to do this, exit out of the program. Otherwise, press enter to proceed...
+""")
+
 SECURITY_GROUP_ID = input("Enter your SG id: ")
 REGION = input("Enter you region: ")
-PORT = input("Enter the desired port to add.\n Ports 443 & 9092 are recommend plus the port specific to your DB: ")
+PORT = input("Enter the desired port to add: ")
 
 # Initialize a session using Amazon EC2
 ec2 = boto3.client('ec2', region_name=REGION)
@@ -72,4 +83,4 @@ for ip in ips:
 
 print("\n\nYour SG looks like...\n")
 
-print_inbound_rules(SECURITY_GROUP_ID)
+print_inbound_rules(SECURITY_GROUP_ID)  
