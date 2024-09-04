@@ -9,7 +9,7 @@ input = input("""
     Also, ensure that you have your Confluent CLI setup and are logged in. 
     See here: https://docs.confluent.io/confluent-cli/current/overview.html#quick-start 
       
-    If you've need to do this, exit out of the program. Otherwise, press enter to proceed...
+    If you need to do this, exit out of the program. Otherwise, press enter to proceed...
 """)
 
 SECURITY_GROUP_ID = input("Enter your SG id: ")
