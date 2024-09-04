@@ -3,7 +3,7 @@ from botocore.exceptions import ClientError
 
 SECURITY_GROUP_ID = input("Enter your SG id: ")
 REGION = input("Enter you region: ")
-PORT = input("Enter the desired port to add: ")
+PORT = input("Enter the desired port to add.\n Ports 443 & 9092 are recommend plus the port specific to your DB: ")
 
 # Initialize a session using Amazon EC2
 ec2 = boto3.client('ec2', region_name=REGION)
