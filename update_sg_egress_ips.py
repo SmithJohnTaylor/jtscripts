@@ -35,7 +35,7 @@ def get_ip_prefixes():
     try:
         # Execute the CLI command
         result = subprocess.run(
-            ["confluent", "network", "ip-address", "list", "--region", "us-east-2", "--services", "CONNECT", "--output", "json"],
+            ["confluent", "network", "ip-address", "list", "--region", REGION, "--services", "CONNECT", "--output", "json"],
             capture_output=True,
             text=True,
             check=True
