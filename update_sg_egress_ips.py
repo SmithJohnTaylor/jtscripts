@@ -3,7 +3,7 @@ from botocore.exceptions import ClientError
 
 SECURITY_GROUP_ID = input("Enter your SG id: ")
 REGION = input("Enter you region: ")
-
+PORT = input("Enter the desired port to add: ")
 
 # Initialize a session using Amazon EC2
 ec2 = boto3.client('ec2', region_name=REGION)
@@ -62,8 +62,8 @@ ips = get_ip_prefixes()
 
 for ip in ips:
     try:
-        add_inbound_rule(443, 'tcp', ip)
-        print (f"Adding port 443 rule for ip: {ip}")
+        add_inbound_rule(PORT, 'tcp', ip)
+        print (f"Adding port {PORT} rule for ip: {ip}")
     except ClientError as e:
         print(f"Error adding rule: {e}")
     except:
